@@ -12,7 +12,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	now := time.Now()
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       fmt.Sprintf("Hello, World %s", now.Format("2006-01-02 3:05:06pm")),
+		Body:       fmt.Sprintf("Hello, World %s", now.Format("2006-01-02 3:04:05pm")),
 		Headers: map[string]string{
 			"Cache-Control": "public, max-age=31536000",
 		},
