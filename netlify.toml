@@ -1,0 +1,8 @@
+[build]
+  command = "go build -o functions/cache-test ./..."
+  functions = "functions"
+  publish = "public"
+
+[build.environment]
+  # Change this path with the path to your repository
+  GO_IMPORT_PATH = "github.com/carlmjohnson/netlify-function-cache-test"
