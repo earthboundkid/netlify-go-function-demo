@@ -6,3 +6,4 @@
 [build.environment]
   # Change this path with the path to your repository
   GO_IMPORT_PATH = "github.com/carlmjohnson/netlify-function-cache-test"
+  GO111MODULE = "on"
