@@ -1,5 +1,5 @@
 [build]
-  command = "go build -o functions/cache-test ./..."
+  command = "go build -o functions/ ./cmd/cache-test && go build -o functions/ ./cmd/cache-test"
   functions = "functions"
   publish = "public"
 
