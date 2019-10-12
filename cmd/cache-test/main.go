@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	usehttp := flag.Boolean("http", false, "use http rather than AWS Lambda")
+	usehttp := flag.Bool("http", false, "use http rather than AWS Lambda")
 	flag.Parse()
 	listener := gateway.ListenAndServe
 	if *usehttp {
