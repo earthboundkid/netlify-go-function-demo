@@ -24,7 +24,7 @@ func main() {
 
 func hello(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
-	b, err := httputil.DumpRequest(r)
+	b, err := httputil.DumpRequest(r, true)
 	if err != nil {
 		log.Printf("could not dump request: %v", err)
 		return
