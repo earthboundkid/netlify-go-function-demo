@@ -1,16 +1,15 @@
 [build]
-  command = "go build -o functions/cache-test ./cmd/cache-test && go build -o functions/cache-test-2 ./cmd/cache-test-2"
+  command = "./build.sh"
   functions = "functions"
   publish = "public"
 
 [build.environment]
-  # Change this path with the path to your repository
   GO_IMPORT_PATH = "github.com/carlmjohnson/netlify-function-cache-test"
   GO111MODULE = "on"
 
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  to = "/.netlify/functions/gateway:splat"
   status = 401
   force = true
   [redirects.headers]
