@@ -1,25 +1,33 @@
 package main
 
 import (
-	"fmt"
-	"time"
+	"flag"
+	"log"
+	"net/http"
+	"net/http/httputil"
 
-	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-lambda-go/lambda"
+	"github.com/apex/gateway"
 )
 
-func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	now := time.Now()
-	return &events.APIGatewayProxyResponse{
-		StatusCode: 200,
-		Body:       fmt.Sprintf("Hello, World %s", now.Format("2006-01-02 3:04:05pm")),
-		Headers: map[string]string{
-			"Cache-Control": "public, max-age=31536000",
-		},
-	}, nil
+func main() {
+	usehttp := flag.Boolean("http", false, "use http rather than AWS Lambda")
+	flag.Parse()
+	listener := gateway.ListenAndServe
+	if *usehttp {
+		listener = http.ListenAndServe
+	}
+
+	http.HandleFunc("/", hello)
+
+	log.Fatal(listener(":3000", nil))
 }
 
-func main() {
-	// Make the handler available for Remote Procedure Call by AWS Lambda
-	lambda.Start(handler)
+func hello(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/plain")
+	b, err := httputil.DumpRequest(r)
+	if err != nil {
+		log.Printf("could not dump request: %v", err)
+		return
+	}
+	w.Write(b)
 }
