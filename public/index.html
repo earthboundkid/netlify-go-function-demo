@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Demo document</title>
+</head>
+<body>
+  <h1>Demo of feed2json</h1>
+  <ul id="contents"></ul>
+  <script type="module">
+    let options = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      dayPeriod: "short"
+    };
+
+    const toDate = new Intl.DateTimeFormat("default", options);
+
+    (async () => {
+      let data = await fetch("/api/feed").then(rsp => rsp.json());
+      let tableEls = [];
+      for (let item of data.items) {
+        let row = document.createElement("li");
+        let link = document.createElement("a");
+        link.href = item.url;
+        link.innerText = item.title;
+        row.append(link);
+        let d = new Date(item.date_published);
+        row.innerHTML += " " + toDate.format(d);
+        tableEls.push(row);
+      }
+      let el = document.getElementById("contents");
+      el.append(...tableEls);
+    })();
+  </script>
+</body>
+</html>

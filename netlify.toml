@@ -4,13 +4,10 @@
   publish = "public"
 
 [build.environment]
-  GO_IMPORT_PATH = "github.com/carlmjohnson/netlify-function-cache-test"
+  GO_IMPORT_PATH = "github.com/carlmjohnson/netlify-go-function-demo"
   GO111MODULE = "on"
 
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/gateway/:splat"
-  status = 401
-  force = true
-  [redirects.headers]
-    X-From = "Netlify"
+  status = 200
