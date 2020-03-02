@@ -20,7 +20,7 @@
 
     (async () => {
       let data = await fetch("/api/feed").then(rsp => rsp.json());
-      let tableEls = [];
+      let listEls = [];
       for (let item of data.items) {
         let row = document.createElement("li");
         let link = document.createElement("a");
@@ -29,10 +29,10 @@
         row.append(link);
         let d = new Date(item.date_published);
         row.innerHTML += " " + toDate.format(d);
-        tableEls.push(row);
+        listEls.push(row);
       }
       let el = document.getElementById("contents");
-      el.append(...tableEls);
+      el.append(...listEls);
     })();
   </script>
 </body>
