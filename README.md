@@ -2,4 +2,4 @@
 
 A simple repo to demonstrate how to launch a Go microservice on Netlify using [Netlify functions](https://functions.netlify.com) and URL rewriting.
 
-[See demo site](https://go-function-demo.netlify.com)
+[See demo site](https://go-function-demo.netlify.com) and [detailed blog post explanation](https://blog.carlmjohnson.net/post/2020/2020-03-01-how-to-host-golang-on-netlify-for-free/).
