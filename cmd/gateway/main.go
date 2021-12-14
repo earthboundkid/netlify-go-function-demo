@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/apex/gateway"
 	"github.com/carlmjohnson/feed2json"
+	"github.com/carlmjohnson/gateway"
 )
 
 func main() {
