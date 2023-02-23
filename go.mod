@@ -16,5 +16,5 @@ require (
 	github.com/mmcdole/goxpp v0.0.0-20181012175147-0068e33feabf // indirect
 	github.com/tj/assert v0.0.0-20190920132354-ee03d75cd160 // indirect
 	golang.org/x/net v0.0.0-20190119204137-ed066c81e75e // indirect
-	golang.org/x/text v0.3.0 // indirect
+	golang.org/x/text v0.3.8 // indirect
 )
