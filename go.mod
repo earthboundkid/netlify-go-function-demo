@@ -1,4 +1,4 @@
-module github.com/carlmjohnson/netlify-function-cache-test
+module github.com/carlmjohnson/netlify-go-function-demo
 
 go 1.17
 
