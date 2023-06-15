@@ -1,7 +1,6 @@
 package main
 
 import (
-	"embed"
 	"flag"
 	"fmt"
 	"log"
@@ -12,15 +11,8 @@ import (
 	"github.com/carlmjohnson/gateway"
 )
 
-var FS embed.FS
-
 func makeTemplate(names ...string) *template.Template {
-	baseName := names[0]
-	return template.Must(
-		template.
-			New(baseName).
-			Funcs(nil).
-			ParseFS(FS, names...))
+	return nil
 }
 
 var MailChimp = makeTemplate("mailchimp.html")
