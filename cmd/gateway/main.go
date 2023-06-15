@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "embed"
+	"embed"
 	"flag"
 	"fmt"
 	"log"
@@ -10,6 +10,8 @@ import (
 	"github.com/carlmjohnson/feed2json"
 	"github.com/carlmjohnson/gateway"
 )
+
+var FS embed.FS
 
 func main() {
 	port := flag.Int("port", -1, "specify a port to use http rather than AWS Lambda")
