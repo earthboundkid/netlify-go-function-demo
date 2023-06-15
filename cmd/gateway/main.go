@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"flag"
 	"fmt"
 	"log"
@@ -10,6 +11,8 @@ import (
 	"github.com/carlmjohnson/feed2json"
 	"github.com/carlmjohnson/gateway"
 )
+
+var FS embed.FS
 
 func makeTemplate(names ...string) *template.Template {
 	return nil
