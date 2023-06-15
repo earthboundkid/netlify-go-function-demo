@@ -11,6 +11,7 @@ import (
 	"github.com/carlmjohnson/gateway"
 )
 
+//go:embed *.html
 var FS embed.FS
 
 func main() {
