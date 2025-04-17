@@ -1,6 +1,12 @@
 set -euxo pipefail
 
-mkdir -p "$(pwd)/functions"
-GOBIN=$(pwd)/functions go install ./...
-chmod +x "$(pwd)"/functions/*
+THIS_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+cd "$THIS_DIR"
+
 go env
+go mod download
+
+FUNC_DIR=$THIS_DIR/functions
+mkdir -p "$FUNC_DIR"
+GOBIN=$FUNC_DIR go install ./...
