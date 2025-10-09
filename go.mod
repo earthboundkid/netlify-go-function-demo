@@ -1,6 +1,6 @@
 module github.com/carlmjohnson/netlify-go-function-demo
 
-go 1.17
+go 1.23.0
 
 require (
 	github.com/carlmjohnson/feed2json v0.0.7
