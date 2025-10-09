@@ -7,6 +7,6 @@ cd "$THIS_DIR"
 
 mkdir -p "$THIS_DIR/functions"
 LDFLAGS="-linkmode external -extldflags "-static""
-GOBIN=$THIS_DIR/functions go install -ldflags "$LDFLAGS" ./...
+CGO_ENABLED=0 GOBIN=$THIS_DIR/functions go install -ldflags "$LDFLAGS" ./...
 chmod +x "$THIS_DIR"/functions/*
 go env

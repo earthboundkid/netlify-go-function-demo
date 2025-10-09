@@ -1,4 +1,4 @@
-module github.com/carlmjohnson/netlify-go-function-demo
+module github.com/earthboundkid/netlify-go-function-demo
 
 go 1.23.0
 
