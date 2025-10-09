@@ -1,6 +1,12 @@
 set -euxo pipefail
 
-mkdir -p "$(pwd)/functions"
-GOBIN=$(pwd)/functions go install ./...
-chmod +x "$(pwd)"/functions/*
+# Get the directory that this script file is in
+THIS_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+cd "$THIS_DIR"
+
+mkdir -p "$THIS_DIR/functions"
+LDFLAGS="-linkmode external -extldflags "-static""
+GOBIN=$THIS_DIR/functions go install -ldflags "$LDFLAGS" ./...
+chmod +x "$THIS_DIR"/functions/*
 go env
